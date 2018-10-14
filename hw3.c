@@ -19,20 +19,20 @@ int main(){
 
   fd = open("filename.txt" , O_CREAT | O_APPEND |O_WRONLY );
 
-while(!exit){
+while(1){
   //if (pid == 0) {
    // printf("I am the child!  I have pid %d.\n", getpid());
     //exit(6);
   //} else {
     printf("pid: %d status:%d\n", getpid(), pid);
+   waitpid();
     int status;
-    wait(&status);
-     exit(6);
-
+   // wait(&status);
+    exit(status);
+     printf("CS361 > ");
    //printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
    //printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
-
 
                 return 0;
 }
