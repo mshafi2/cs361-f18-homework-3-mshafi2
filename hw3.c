@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+
 int main(){
   char line[500];
   char argsarray[20][100];
@@ -8,17 +13,31 @@ int main(){
   //User prompt
   printf("CS361 > ");
   fgets(line, 500, stdin);
+  int fd;
+  int ret;
   int pid = fork();
 
+  fd = open("filename.txt" , O_CREAT | O_APPEND |O_WRONLY );
 
-  if (pid == 0) {
-    printf("I am the child!  I have pid %d.\n", getpid());
-    exit(6);
-  } else {
-    printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
+
+while(stdin){
+  //if (pid == 0) {
+   // printf("I am the child!  I have pid %d.\n", getpid());
+    //exit(6);
+  //} else {
+   if(stdin == 0){
+    printf("pid: %d status:%d\n", getpid(), pid);
     int status;
     wait(&status);
-    printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
+
+    printf("CS 361 > ");
+    exit(6);
+
+   //printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
+   //printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
 
+}
+
+                return 0;
 }
