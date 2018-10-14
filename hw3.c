@@ -10,6 +10,7 @@ int main(){
   char line[500];
   char argsarray[20][100];
 
+  char **malArray = (char **) malloc(1000 * sizeof(char));
  
 while(1){
  printf("CS361 > ");
@@ -18,14 +19,8 @@ while(1){
  if(strcmp(line, "exit\n") ==0){
  	exit(0);
  }
- 	
-  int fd;
-  int ret;
-  //int pid = fork();
-  
-  //fd = open("filename.txt" , O_CREAT | O_APPEND |O_WRONLY );
-  
-	char *word = strtok(line, " ");
+
+  char *word = strtok(line, " ");
   int i = 0;
   while (word) {
     printf("word: %s\n", word);
@@ -33,10 +28,15 @@ while(1){
     strcpy(argsarray[i], word);
     //get next word
     word = strtok(NULL, " ");
+    
+    malArray[i] = argsarray[i];
     i = i + 1;
   }
+   
+   
    
   }
 
 		return 0;
 }
+
