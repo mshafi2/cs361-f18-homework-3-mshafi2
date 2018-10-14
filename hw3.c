@@ -4,19 +4,16 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+int main(void){
+    pid_t child;
+    int status;
+    char line[500];
+    char argsarray[20][100];
 
-int main(){
+    printf("CS361 > ");
+    fgets(line, 500, stdin);
 
-  //create some space for our strings
-  char line[500];
-  char argsarray[20][100];
-
-  //print prompt
-  printf("CS361 > ");
-  //read line from terminal
-  fgets(line, 500, stdin);
-
-  //break the string up into words
+//break the string up into words
   char *word = strtok(line, " ");
   int i = 0;
   while (word) {
@@ -29,11 +26,11 @@ int main(){
   }
 
   //print out our array
-  int j=0; 
+  int j=0;
   for (;j<i;j++){
     printf("argsarray[%d]: %s\n", j, argsarray[j]);
-  }  
-   int fd;
+}
+        int fd;
         int ret;
 
         fd = open("output.txt", O_CREAT | O_APPEND | O_WRONLY);
@@ -56,6 +53,5 @@ int main(){
         close(fd);
 
         return 0;
-
 
 }
