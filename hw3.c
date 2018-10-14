@@ -48,7 +48,7 @@ int main(void){
         int fd;
         int ret;
 
-        fd = open("output.txt", O_CREAT | O_APPEND | O_WRONLY);
+        fd = open("filename.txt", O_CREAT | O_APPEND | O_WRONLY);
 
         if(fd < 0)
         {
