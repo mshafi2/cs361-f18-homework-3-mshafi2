@@ -40,7 +40,8 @@ int main(void){
   }
   if (pid == 0) {
     printf("pid:%d status:%d\n" , (int)getpid(),(int)pid);
-  int status;
+                                                        
+    int status;
     wait(&status);
    }
    if (pid > 0){
@@ -81,10 +82,10 @@ int main(void){
            perror("dup2");
            exit(1);
         }
-
-        system("ls /tmp");
+ system("ls /tmp");
         close(fd);
 
 }
         return 0;
 
+}
