@@ -10,29 +10,33 @@ int main(){
   char line[500];
   char argsarray[20][100];
 
-  //User prompt
-  printf("CS361 > ");
-  fgets(line, 500, stdin);
+ 
+while(1){
+ printf("CS361 > ");
+ fgets(line, 500, stdin);
+ 
+ if(strcmp(line, "exit\n") ==0){
+ 	exit(0);
+ }
+ 	
   int fd;
   int ret;
-  int pid = fork();
-
-  fd = open("filename.txt" , O_CREAT | O_APPEND |O_WRONLY );
-
-while(1){
-  //if (pid == 0) {
-   // printf("I am the child!  I have pid %d.\n", getpid());
-    //exit(6);
-  //} else {
-    printf("pid: %d status:%d\n", getpid(), pid);
-   waitpid();
-    int status;
-   // wait(&status);
-    exit(status);
-     printf("CS361 > ");
-   //printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
-   //printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
+  //int pid = fork();
+  
+  //fd = open("filename.txt" , O_CREAT | O_APPEND |O_WRONLY );
+  
+	char *word = strtok(line, " ");
+  int i = 0;
+  while (word) {
+    printf("word: %s\n", word);
+    //copy a word to the arg array
+    strcpy(argsarray[i], word);
+    //get next word
+    word = strtok(NULL, " ");
+    i = i + 1;
+  }
+   
   }
 
-                return 0;
+		return 0;
 }
