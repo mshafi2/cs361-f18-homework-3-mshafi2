@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/types.h>
+
 
 int main(void){
     pid_t child;
@@ -30,21 +32,37 @@ int main(void){
   for (;j<i;j++){
     printf("argsarray[%d]: %s\n", j, argsarray[j]);
 }
- //-----------------------------------------------------
-    int pid = fork();
-  if (pid == 0) {
-    printf("I am the child!  I have pid %d.\n", getpid());
-    exit(6);
-  } else {
-    printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
-    int status;
-    wait(&status);
-    printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
+//---------------------------------------------------
+   pid_t pid = fork();
+
+  if (pid < 0) {
+    printf("Fork failed \n");
   }
-    
-    
- //-----------------------------------------------------
-    
+  if (pid == 0) {
+    printf("pid:%d status:%d\n" , (int)getpid(),(int)pid);
+  int status;
+    wait(&status);
+   }
+   if (pid > 0){
+     printf("pid:%d status:%d\n" , (int)getpid() , (int)pid);
+    }
+    printf("CS361 > ");
+    fgets(line, 500, stdin);
+
+   while (word) {
+    printf("word: %s\n", word);
+    //copy a word to the arg array
+    strcpy(argsarray[i], word);
+    //get next word
+    word = strtok(NULL, " ");
+    i = i + 1;
+
+    //print out our array
+  for (;j<i;j++){
+    printf("argsarray[%d]: %s\n", j, argsarray[j]);
+
+}
+//---------------------------------------------------
         int fd;
         int ret;
 
@@ -67,6 +85,6 @@ int main(void){
         system("ls /tmp");
         close(fd);
 
+}
         return 0;
 
-}
