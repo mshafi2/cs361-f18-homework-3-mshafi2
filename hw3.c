@@ -17,14 +17,17 @@ while(1){
  printf("CS361 > ");
  
  fgets(line, 500, stdin);
+ 
  	line[strlen(line) - 1] = '\0';
+ 	
  if(strcmp(line, "exit") ==0){
  	exit(0);
  }
+ 
 
   char *word = strtok(line, " ");
   int i = 0;
-
+   
   
   while (word) 
   {
@@ -37,6 +40,7 @@ while(1){
     //get next word
     word = strtok(NULL, " ");
     
+    
     malArray[i] = argsarray[i];
     i = i + 1;
     
@@ -45,7 +49,7 @@ while(1){
     int pid = fork();
   if (pid == 0) 
   {
-    //printf("Child with pid %d, about to exec ls\n", getpid());
+    printf("pid:%d status:%d\n", getpid());
     execv(malArray[0], malArray);
    // printf("Hello adding print statement\n");
   } 
@@ -62,5 +66,3 @@ while(1){
 
 		return 0;
 }
-
-
