@@ -162,7 +162,7 @@ int main()
   while (1) {
 
   // Print prompt
-  printf(">361");
+  printf("361 >");
 
   // Check for signals
   signal(SIGINT, sigint_handler);
