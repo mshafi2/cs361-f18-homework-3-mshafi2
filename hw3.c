@@ -34,7 +34,7 @@ int main(){
   
 		while (word) 
 		{
-		    printf("word1: %s\n", word);
+		   // printf("word1: %s\n", word);
 		    int ret;
 		    ret = strcmp(word, ";");
 		  	if(ret == 0)
@@ -44,7 +44,7 @@ int main(){
 	  		
 		   			while(word)
 		    	 	{
-			   			printf("word2: %s\n", word);
+			   			//printf("word2: %s\n", word);
 			   			strcpy(argsarray1[u], word);
 			   		 		//get next word
 			    		word = strtok(NULL, " ");
@@ -68,15 +68,15 @@ int main(){
   		  //print out our array
   int j=0;
    
-  for (;j<i;j++){
-    printf("argsarray[%d]: %s\n", j, argsarray[j]);
-  }  
+//  for (;j<i;j++){
+//    printf("argsarray[%d]: %s\n", j, argsarray[j]);
+//  }  
   
     //print out our array
   
-  for (j=0; j<u;j++){
-    printf("argsarray1[%d]: %s\n", j, argsarray1[j]);
-  }  
+//  for (j=0; j<u;j++){
+//    printf("argsarray1[%d]: %s\n", j, argsarray1[j]);
+//  }  
   		
   		
   		 int pid = fork();
