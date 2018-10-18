@@ -66,7 +66,7 @@ int main(){
   		
   		
   		  //print out our array
-  int j=0;
+ 		 int j=0;
    
 //  for (;j<i;j++){
 //    printf("argsarray[%d]: %s\n", j, argsarray[j]);
@@ -90,8 +90,8 @@ int main(){
   {
    // printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
     int status;
-    printf("pid:%d status:%d\n", getpid(), status);
     wait(&status);
+    printf("pid:%d status:%d\n", getpid() ,  WEXITSTATUS(status));
    // printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
   
@@ -107,7 +107,7 @@ int main(){
   	
    // printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
     int status1;
-    printf("pid:%d status:%d\n", getpid(), status1);
+    printf("pid:%d status:%d\n", getpid(), WEXITSTATUS(status1));
     wait(&status1);
    // printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
