@@ -82,7 +82,7 @@ int main(){
   		 int pid = fork();
   if (pid == 0) 
   {
-    printf("pid:%d status:%d\n", getpid());
+   
     execv(malArray[0], malArray);
    // printf("Hello adding print statement\n");
   } 
@@ -90,6 +90,7 @@ int main(){
   {
    // printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
     int status;
+    printf("pid:%d status:%d\n", getpid(), status);
     wait(&status);
    // printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
@@ -97,14 +98,16 @@ int main(){
   int pid1 = fork();
   if (pid1 == 0) 
   {
-    printf("pid:%d status:%d\n", getpid());
+  
     execv(malArray1[0], malArray1);
    // printf("Hello adding print statement\n");
   } 
   else 
   {
+  	
    // printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
     int status1;
+    printf("pid:%d status:%d\n", getpid(), status1);
     wait(&status1);
    // printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
