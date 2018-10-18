@@ -25,7 +25,7 @@ while(1){
  }
  
 
-  char *word = strtok(line, ";");
+  char *word = strtok(line, " ");
   int i = 0;
    
   
@@ -39,7 +39,7 @@ while(1){
    
 	
     //get next word
-    word = strtok(NULL, ";");
+    word = strtok(NULL, " ");
     
     
     malArray[i] = argsarray[i];
