@@ -7,15 +7,24 @@
 #include <sys/types.h>
 //---------------------------------------
 void sigint_handler(int sig){
- // char msg[] = "Signal handled.  Deal with it.\n";
- // write(1, msg, sizeof(msg));
- (void)signal(SIGINT, SIG_DFL);
-  //exit(0);
+  char msg[] = "caught sigint.\n";
+  write(1, msg, sizeof(msg));
+  exit(0);
+}
+
+void sigtstp_handler(int sig){
+  char msg[] = "caught sigstp\n";
+  write(1, msg, sizeof(msg));
+  return;
 }
 
 //----------------------------------------
 
 int main(){
+	
+	signal(SIGINT, sigint_handler);
+	signal(SIGTSTP, sigtstp_handler);
+	
   char line[500];
   char argsarray[20][100];
   char argsarray1[20][100];
