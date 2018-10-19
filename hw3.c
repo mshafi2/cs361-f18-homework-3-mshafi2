@@ -1,19 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <signal.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/types.h>
-//---------------------------------------
-void sigint_handler(int sig){
- // char msg[] = "Signal handled.  Deal with it.\n";
- // write(1, msg, sizeof(msg));
- (void)signal(SIGINT, SIG_DFL);
-  //exit(0);
-}
 
-//----------------------------------------
 
 int main(){
   char line[500];
@@ -121,20 +112,10 @@ int main(){
    // printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
 }
-//===========================IOREDIRECT======================================
-
-//============================SIGNAL HANDLER=====================================
-  signal(SIGINT, sigint_handler);
-
-  int i = 99;
-  while(1){
-    sleep(0);
-    /i = i - 1;
-    
-  } 
+   
+   
+   
   
-  
-//======================================================================
 
 		return 0;
 }
