@@ -124,9 +124,9 @@ int main(){
   {
   	
    // printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
-    int status1;
+    int status1; 
     wait(&status1);
-    printf("pid:%d status:%d\n", pid(), WEXITSTATUS(status1));
+    printf("pid:%d status:%d\n", pid1(), WEXITSTATUS(status1));
    // printf("My child has died with status %d. :(\n", WEXITSTATUS(status));
   }
 }
